@@ -12,7 +12,6 @@
   "dependencies": {
     "-": "^0.0.1",
     "@reduxjs/toolkit": "^1.9.5",
-    "@reviero-dev/proto": "^1.0.21",
     "@types/mapbox-gl": "^2.7.11",
     "body-scroll-lock": "^4.0.0-beta.0",
     "lodash": "^4.17.21",
