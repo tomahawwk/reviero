@@ -1,0 +1,34 @@
+.animated-word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-word:hover div:first-child span{
+    transform: skewX(30deg) translateY(-100%);
+}
+
+.animated-word:hover div:last-child span{
+    transform: skewX(0) translateY(-100%);
+}
+
+.animated-word__wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-word__part {
+    display: inline-flex;
+    left: 0;
+    grid-gap: 0.07em;
+}
+
+.animated-word__part--bottom {
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+
+.animated-word__letter {
+    transition: transform .5s cubic-bezier(.67,.01,.27,1);
+}

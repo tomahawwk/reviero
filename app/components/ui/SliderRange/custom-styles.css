@@ -1,0 +1,26 @@
+.range {
+    width: 100%;
+}
+
+.range-thumb {
+    margin-top: -7px;
+    width: 18px;
+    height: 18px;
+    background-color: #15BEB6;
+    cursor: pointer;
+    border-radius: 100%;
+    outline: none;
+}
+
+.range-track {
+    height: 4px;
+    border-radius: 3px;
+}
+
+.range-track-1 {
+    background-color: #D2D6DD;
+}
+
+.range-track-0 {
+    background-color: #15BEB6;
+}
