@@ -1,0 +1,46 @@
+Merge branch 'master' of https://gitlab.com/reviero-dev/frontend
+
+# Conflicts:
+#	app/marketplace/[house]/[apartment]/page.tsx
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please run
+#	git update-ref -d MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 3 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   app/@types/protobuf-types.ts
+#	modified:   app/components/Listings/desktop/index.tsx
+#	modified:   app/components/Listings/index.tsx
+#	modified:   app/components/Places/index.tsx
+#	modified:   app/components/ProductIncomeCalculator/desktop/index.tsx
+#	modified:   app/components/ProductIncomeCalculator/index.tsx
+#	modified:   app/components/ProductIncomeCalculator/touch/index.tsx
+#	modified:   app/components/ProductIncomeCalculator/types.ts
+#	new file:   app/components/ProductIncomeCalculator/utils.ts
+#	modified:   app/components/PurchaseDetails/index.tsx
+#	modified:   app/components/PurchaseDetails/types.ts
+#	modified:   app/components/ui/LazyImage/index.tsx
+#	new file:   app/components/ui/PriceText/PriceText.tsx
+#	new file:   app/components/ui/PriceText/index.tsx
+#	new file:   app/components/ui/PriceText/types.ts
+#	new file:   app/components/ui/PriceText/utils.ts
+#	modified:   app/marketplace/[house]/[apartment]/page.tsx
+#	new file:   app/store/reducers/calculations/calculations.api.ts
+#	modified:   app/store/store.ts
+#	modified:   package-lock.json
+#	modified:   package.json
+#	modified:   utils/getNoun.ts
+#	modified:   yarn.lock
+#

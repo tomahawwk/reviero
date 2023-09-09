@@ -1,3 +1,4 @@
+'use client';
 import {SettingsIcon} from '@/icons/Settings';
 import {FC, useEffect, useState} from 'react';
 import {IFilterButton} from '../types';

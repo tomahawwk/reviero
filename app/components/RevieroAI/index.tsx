@@ -1,10 +1,6 @@
 import LazyImage from '@/app/components/ui/LazyImage';
-import breakpoints from '@/breakpoints';
-import {useMediaQuery} from 'react-responsive';
 
 const RevieroAI = () => {
-  const lessLG = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
-
   return (
     <div
       className="w-full flex flex-col-reverse lg:grid lg:grid-cols-[4fr_6fr] rounded-bl-lg rounded-br-lg
@@ -32,7 +28,6 @@ const RevieroAI = () => {
           investment, allowing them to make informed decisions about their
           rental property investments.
         </p>
-        {!lessLG && <a href="#" className="btn-secondary w-fit text-black font-medium">How it Works</a>}
       </div>
     </div>
   );

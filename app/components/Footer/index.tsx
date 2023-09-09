@@ -20,10 +20,6 @@ const menu = [
     text: 'FAQ',
     url: '/faq',
   },
-  {
-    text: 'Blog',
-    url: '/',
-  },
 ];
 
 const Footer: FC = () => {

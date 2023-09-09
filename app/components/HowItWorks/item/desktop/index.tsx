@@ -1,9 +1,9 @@
 'use client';
+import {setModalPayload} from '@/app/store/actions/modal';
+import {useAppDispatch} from '@/redux/hooks';
 import Image from 'next/image';
 import {FC} from 'react';
 import {IHowitem} from '../../types';
-import {useDispatch} from 'react-redux';
-import { setModalPayload } from '@/app/store/actions/modal';
 
 const HowItemDesktop: FC<IHowitem> = ({
   title,
@@ -13,7 +13,7 @@ const HowItemDesktop: FC<IHowitem> = ({
   lastChild,
   button,
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const openPopupHandler = () => {
     dispatch(setModalPayload('timeline', true));
   };

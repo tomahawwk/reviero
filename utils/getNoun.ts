@@ -1,17 +1,14 @@
-const getNoun = (number: number, one: string, two: string, five: string) => {
-  let n = Math.abs(number);
-  n %= 100;
-  if (n >= 5 && n <= 20) {
-    return five;
-  }
-  n %= 10;
-  if (n === 1) {
-    return one;
-  }
-  if (n >= 2 && n <= 4) {
-    return two;
-  }
-  return five;
-};
+const getNoun = (
+  number: number,
+  one: string,
+  two: string,
+  five: string,
+): string =>
+  ((n: number) => (
+    (n %= 100),
+    n >= 5 && n <= 20
+      ? five
+      : ((n %= 10), n === 1 ? one : n >= 2 && n <= 4 ? two : five)
+  ))(Math.abs(number));
 
 export default getNoun;

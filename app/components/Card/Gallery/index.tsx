@@ -1,7 +1,7 @@
-import {ICardGallery} from '@/app/@types/Card/ICardGallery';
 import breakpoints from '@/breakpoints';
 import {FC} from 'react';
 import {useMediaQuery} from 'react-responsive';
+import {ICardGallery} from '../types';
 import GalleryDesktop from './desktop';
 import GalleryTouch from './touch';
 

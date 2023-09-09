@@ -1,10 +1,10 @@
 import {setModalPayload} from '@/app/store/actions/modal';
 import {PhoneFilledIcon} from '@/icons/PhoneFilled';
+import {useAppDispatch} from '@/redux/hooks';
 import Link from 'next/link';
-import {useDispatch} from 'react-redux';
 
 const ProductTouchPlate = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onButtonClick = () => {
     dispatch(setModalPayload('contact', true));

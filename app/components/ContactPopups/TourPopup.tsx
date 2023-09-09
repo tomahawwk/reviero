@@ -1,16 +1,16 @@
 import {setModalPayload} from '@/app/store/actions/modal';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
 import breakpoints from '@/breakpoints';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import Link from 'next/link';
-import {useDispatch, useSelector} from 'react-redux';
 import {useMediaQuery} from 'react-responsive';
 import Modal from '../Modal';
 import ContactPopupView from './ContactPopupView';
 
 const TourPopup = () => {
   const lessLG = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
-  const {tour} = useSelector(getModalSelector);
-  const dispatch = useDispatch();
+  const {tour} = useAppSelector(getModalSelector);
+  const dispatch = useAppDispatch();
 
   const onClose = () => {
     dispatch(setModalPayload('tour', false));

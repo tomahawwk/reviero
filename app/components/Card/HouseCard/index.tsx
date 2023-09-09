@@ -35,7 +35,8 @@ const HouseCard: FC<Property> = ({
         <ProductInfo
           isCard
           annualPercent={annualPercent}
-          minPrice={Number(data?.price)}
+          minPrice={Number(min(map(children, 'data.price')))}
+          maxPrice={Number(max(map(children, 'data.price')))}
         />
         {snippet?.complex?.endOfConstruction && (
           <p className="text-p text-md leading-none">

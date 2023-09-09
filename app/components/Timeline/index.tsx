@@ -2,15 +2,15 @@ import Modal from '@/app/components/Modal';
 import {setModalPayload} from '@/app/store/actions/modal';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
 import breakpoints from '@/breakpoints';
-import {useDispatch, useSelector} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import {useMediaQuery} from 'react-responsive';
 import {timelineData} from './data';
 import TimelineInner from './TimelineInner';
 
 const Timeline = () => {
-  const {timeline} = useSelector(getModalSelector);
+  const {timeline} = useAppSelector(getModalSelector);
   const lessLG = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onClose = () => {
     dispatch(setModalPayload('timeline', false));

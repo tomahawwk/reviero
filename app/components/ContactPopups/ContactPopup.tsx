@@ -1,7 +1,7 @@
 import {setModalPayload} from '@/app/store/actions/modal';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
 import breakpoints from '@/breakpoints';
-import {useDispatch, useSelector} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import {useMediaQuery} from 'react-responsive';
 import Modal from '../Modal';
 import LazyImage from '../ui/LazyImage';
@@ -11,8 +11,8 @@ const ContactPopup = () => {
   const lessLG = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
   const moreXS = useMediaQuery({query: `(min-width: ${breakpoints.xs}px)`});
 
-  const {contact} = useSelector(getModalSelector);
-  const dispatch = useDispatch();
+  const {contact} = useAppSelector(getModalSelector);
+  const dispatch = useAppDispatch();
 
   const onClose = () => {
     dispatch(setModalPayload('contact', false));

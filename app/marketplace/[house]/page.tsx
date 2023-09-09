@@ -25,6 +25,7 @@ import {
 } from '@/app/store/reducers/services/services.api';
 import breakpoints from '@/breakpoints';
 import {ShareIcon} from '@/icons/Share';
+import {useAppDispatch} from '@/redux/hooks';
 import {
   getArea,
   getCity,
@@ -37,7 +38,6 @@ import {NextPage} from 'next';
 import {useParams} from 'next/navigation';
 import {useEffect, useState} from 'react';
 import Skeleton from 'react-loading-skeleton';
-import {useDispatch} from 'react-redux';
 import {useMediaQuery} from 'react-responsive';
 
 const HousePage: NextPage = () => {
@@ -56,7 +56,7 @@ const HousePage: NextPage = () => {
       ? {areaId: propertyData?.property?.address?.areaId}
       : skipToken,
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [prevHouse, setPrevHouse] = useState<Property>();
   const [nextHouse, setNextHouse] = useState<Property>();
   const [crumbsLoading, setCrumbsLoading] = useState<boolean>(true);

@@ -381,3 +381,89 @@ export interface GetMarketplaceResponse {
 export interface GetMarketplacePropertyRequest {
   id: number;
 }
+
+export interface GetEstimatePurchasePriceRequest {
+  price: number;
+}
+
+export interface GetEstimatePurchasePriceResponse {
+  purchasePrice: number;
+  cadastralValue: number;
+  prePurchaseCosts: PrePurchaseCosts | undefined;
+  purchaseCosts: PurchaseCosts | undefined;
+}
+
+export interface PrePurchaseCosts {
+  individual: PrePurchaseCostsIndividual | undefined;
+  company: PrePurchaseCostsCompany | undefined;
+}
+
+export interface PrePurchaseCostsIndividual {
+  letterOfAttorney: number;
+  foreignerID: number;
+  bankAccountRegistration: number;
+  documentsTranslation: number;
+}
+
+export interface PrePurchaseCostsCompany {
+  letterOfAttorney: number;
+  foreignerID: number;
+  bankAccountRegistration: number;
+  documentsTranslation: number;
+  companyRegistration: number;
+  companyAuthorizedCapital: number;
+}
+
+export interface PurchaseCosts {
+  newDevelopment: PurchaseCostsValues | undefined;
+  secondHand: PurchaseCostsValues | undefined;
+}
+
+export interface PurchaseCostsValues {
+  vat: number;
+  stampDuty: number;
+  legalRegistration: number;
+  notary: number;
+}
+
+export interface GetEstimateIncomeRequest {
+  purchasePrice: number;
+  annualAverage: number;
+  occupancyRate: number;
+  conditionType: PropertyDataConditionType;
+  communityFees?: number | undefined;
+  overPeriod?: number | undefined;
+  afterYears?: number | undefined;
+}
+
+export interface GetEstimateIncomeResponse {
+  cadastralValue: number;
+  annualAverage: number;
+  costsFees: GetEstimateIncomeResponseCostsFees | undefined;
+  euCitizen: GetEstimateIncomeResponseCitizen | undefined;
+  nonEuCitizen: GetEstimateIncomeResponseCitizen | undefined;
+}
+
+export interface GetEstimateIncomeResponseCostsFees {
+  managementFee: number;
+  ibi: number;
+  basura: number;
+  communityFees: number;
+}
+
+export interface GetEstimateIncomeResponseCitizen {
+  tax: GetEstimateIncomeResponseCitizenRateValue | undefined;
+  voids: GetEstimateIncomeResponseCitizenRateValue | undefined;
+  totalCosts: number;
+  netIncome: number;
+}
+
+export interface GetEstimateIncomeResponseCitizenRateValue {
+  rate: number;
+  value: number;
+}
+
+export interface GetMacroeconomicResponse {
+  inflation: number;
+  annualRevenueIncrease: number;
+}

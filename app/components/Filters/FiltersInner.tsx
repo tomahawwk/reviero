@@ -11,9 +11,9 @@ import {
 import {useFilterHousesMutation} from '@/app/store/reducers/marketplace/marketplace.api';
 import {CrossIcon} from '@/icons/Cross';
 import {LoaderIcon} from '@/icons/Loader';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import {debounce} from 'lodash';
 import {FC, useEffect, useRef, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import TextField from '../ui/TextField';
 import {
   clearFilters,
@@ -34,8 +34,7 @@ const FiltersDesktop: FC<IFilters> = ({onClose}) => {
     filterParams,
     minPrice,
     maxPrice,
-    offset,
-  } = useSelector(getFiltersSelector);
+  } = useAppSelector(getFiltersSelector);
   const [bathrooms, setBathrooms] = useState<any>(
     bathroomsValue
       ? bathroomOptions.filter(item => item.value == bathroomsValue)[0]
@@ -71,7 +70,7 @@ const FiltersDesktop: FC<IFilters> = ({onClose}) => {
       dispatch(setMaxPrice(value));
     }, 400),
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const showResultsHandler = () => {
     onClose();
@@ -147,10 +146,10 @@ const FiltersDesktop: FC<IFilters> = ({onClose}) => {
   useEffect(() => {
     if (params.length) {
       setFetching(true);
-      let paramsObject = {}
+      let paramsObject = {};
       params.forEach((param: any) => {
-        Object.assign(paramsObject, param)
-      })
+        Object.assign(paramsObject, param);
+      });
       filterHouses(paramsObject).then((data: any) => {
         dispatch(setCount(data.data.total));
         setTimeout(() => {

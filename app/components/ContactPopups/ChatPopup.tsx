@@ -1,16 +1,16 @@
 import {setModalPayload} from '@/app/store/actions/modal';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
 import breakpoints from '@/breakpoints';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import Link from 'next/link';
-import {useDispatch, useSelector} from 'react-redux';
 import {useMediaQuery} from 'react-responsive';
 import Modal from '../Modal';
 import ContactPopupView from './ContactPopupView';
 
 const ChatPopup = () => {
   const lessLG = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
-  const {chat} = useSelector(getModalSelector);
-  const dispatch = useDispatch();
+  const {chat} = useAppSelector(getModalSelector);
+  const dispatch = useAppDispatch();
 
   const onClose = () => {
     dispatch(setModalPayload('chat', false));
@@ -47,7 +47,9 @@ const ChatPopup = () => {
               />
             </Link>
           </div>
-          <Link href="#" className="w-full flex rounded-sm justify-center border border-grey-400
+          <Link
+            href="#"
+            className="w-full flex rounded-sm justify-center border border-grey-400
           leading-none items-center gap-xs text-[15px] font-medium p-sm">
             <img src="/icons/email.svg" width={20} height={20} />
             <span>Email</span>

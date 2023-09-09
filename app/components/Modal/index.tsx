@@ -1,14 +1,25 @@
 import {setModalPayload} from '@/app/store/actions/modal';
-import {BodyScrollOptions, disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
+import {useAppDispatch} from '@/redux/hooks';
+import {
+  BodyScrollOptions,
+  disableBodyScroll,
+  enableBodyScroll,
+} from 'body-scroll-lock';
 import {FC, useEffect, useRef, useState} from 'react';
-import {useDispatch} from 'react-redux';
 import {IModal} from './types';
 import ModalCenterView from './views/center';
 import ModalLeftView from './views/left';
 import ModalSwipeableView from './views/swipeable/index';
 
-const Modal: FC<IModal> = ({children, open, view, name, className, heightFit}) => {
-  const dispatch = useDispatch();
+const Modal: FC<IModal> = ({
+  children,
+  open,
+  view,
+  name,
+  className,
+  heightFit,
+}) => {
+  const dispatch = useAppDispatch();
   const [renderModal, setRenderModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const scrollableContent = useRef<HTMLDivElement>(null);
@@ -26,10 +37,9 @@ const Modal: FC<IModal> = ({children, open, view, name, className, heightFit}) =
       setRenderModal(true);
       setTimeout(() => {
         setShowModal(true);
-        if (scrollableContent.current){
+        if (scrollableContent.current) {
           disableBodyScroll(scrollableContent.current, options);
         }
-          
       }, 50);
     } else {
       setShowModal(false);
@@ -59,7 +69,10 @@ const Modal: FC<IModal> = ({children, open, view, name, className, heightFit}) =
         </div>
       ) : view === 'swipeable' ? (
         <div ref={scrollableContent}>
-          <ModalSwipeableView showModal={showModal} swipeEvent={onCloseHandler} heightFit={heightFit}>
+          <ModalSwipeableView
+            showModal={showModal}
+            swipeEvent={onCloseHandler}
+            heightFit={heightFit}>
             {children}
           </ModalSwipeableView>
         </div>

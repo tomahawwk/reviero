@@ -1,13 +1,13 @@
 'use client';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
-import {useSelector} from 'react-redux';
+import {useAppSelector} from '@/redux/hooks';
 import Modal from '../Modal';
 import Ownership from '../Ownership';
 import Socials from '../Socials';
 import MobileMenuItem from '../ui/MobileMenuItem';
 
 const MobileMenu = () => {
-  const {menu} = useSelector(getModalSelector);
+  const {menu} = useAppSelector(getModalSelector);
 
   return (
     <Modal open={menu.open} view="left" name="menu">

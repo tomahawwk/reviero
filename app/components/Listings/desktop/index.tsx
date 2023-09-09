@@ -1,15 +1,17 @@
 'use client';
+
+import {FC} from 'react';
 import HouseCard from '@/app/components/Card/HouseCard';
+import {IListing} from '../types';
 import PropertyCard from '@/app/components/Card/PropertyCard';
 import SkeletonCard from '@/app/components/Card/Skeleton';
-import {FC} from 'react';
-import {IListing} from '../types';
 
 const ListingsDesktop: FC<IListing> = ({items, loading}) => {
   return (
     <>
       {!loading ? (
         <>
+          <SkeletonCard />
           <SkeletonCard />
           <SkeletonCard />
           <SkeletonCard />

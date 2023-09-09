@@ -14,10 +14,10 @@ import {
   useGetHousesQuery,
 } from '@/app/store/reducers/marketplace/marketplace.api';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import {NextPage} from 'next';
 import {useEffect, useRef, useState} from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import {useDispatch, useSelector} from 'react-redux';
 import {Property} from '../@types/protobuf-types';
 import NotFound from './not-found';
 
@@ -25,7 +25,7 @@ const fetchLimit = 8;
 
 const Marketplace: NextPage = () => {
   const [fetchOffset, setFetchOffset] = useState<number>(0);
-  const {filterParams} = useSelector(getFiltersSelector);
+  const {filterParams} = useAppSelector(getFiltersSelector);
   const [params, setParams] = useState<any>({
     limit: fetchLimit,
     offset: fetchOffset,
@@ -34,9 +34,9 @@ const Marketplace: NextPage = () => {
   const [filterHouses] = useFilterHousesMutation();
   const [isMounted, setMounted] = useState<boolean>(true);
   const {data, isLoading, error} = useGetHousesQuery(params);
-  const {filters: filtersModal} = useSelector(getModalSelector);
+  const {filters: filtersModal} = useAppSelector(getModalSelector);
   const [hasElapsed, setHasElapsed] = useState<boolean>(true);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const timeout = useRef<ReturnType<typeof setTimeout>>();
   const [cards, setCards] = useState<Property[]>([]);
   const skeletonCards = [];

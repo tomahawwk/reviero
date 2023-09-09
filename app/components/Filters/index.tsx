@@ -1,15 +1,15 @@
 import {setModalPayload} from '@/app/store/actions/modal';
 import {getModalSelector} from '@/app/store/reducers/modal/modal';
 import breakpoints from '@/breakpoints';
-import {useDispatch, useSelector} from 'react-redux';
+import {useAppDispatch, useAppSelector} from '@/redux/hooks';
 import {useMediaQuery} from 'react-responsive';
 import Modal from '../Modal';
 import FiltersInner from './FiltersInner';
 
 const Filters = () => {
   const lessLG = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
-  const {filters} = useSelector(getModalSelector);
-  const dispatch = useDispatch();
+  const {filters} = useAppSelector(getModalSelector);
+  const dispatch = useAppDispatch();
 
   const onCloseDesktop = () => {
     dispatch(setModalPayload('filters', false));

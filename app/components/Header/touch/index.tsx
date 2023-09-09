@@ -8,17 +8,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {FC} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import {useMediaQuery} from 'react-responsive';
 import {IHeader} from '../types';
 import FilterButtonTouch from '@/app/components/ui/FilterButton/touch';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 const HeaderTouch: FC<IHeader> = ({isStatic}) => {
   const isTouch = useMediaQuery({query: `(max-width: ${breakpoints.lg}px)`});
-  const {filterParams} = useSelector(getFiltersSelector);
-  const {menu, filters} = useSelector(getModalSelector);
+  const {filterParams} = useAppSelector(getFiltersSelector);
+  const {menu, filters} = useAppSelector(getModalSelector);
   const pathname = usePathname();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const menuClickHandler = () => {
     dispatch(setModalPayload('menu', !menu.open));

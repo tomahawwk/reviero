@@ -1,14 +1,30 @@
 'use client';
-import PercentTip from '@/app/components/ui/PercentTip';
-import SliderRange from '@/app/components/ui/SliderRange';
+
 import {FC} from 'react';
 import {IProductIncomeCalculator} from '../types';
+import PercentTip from '@/app/components/ui/PercentTip';
+import {PriceText} from '../../ui/PriceText';
 import ServiceLinks from '@/app/components/ServiceLinks';
+import SliderRange from '@/app/components/ui/SliderRange';
+import {calculateInflation} from '../utils';
+import getNoun from '@/utils/getNoun';
+import {useGetMacroeconomicQuery} from '@/app/store/reducers/calculations/calculations.api';
 
 const TouchProductIncomeCalculator: FC<IProductIncomeCalculator> = ({
   years,
+  data,
+  income,
   setYears,
 }) => {
+  const {data: macroeconomic} = useGetMacroeconomicQuery();
+
+  const inflation = (macroeconomic?.inflation ?? 0) / 100;
+  const totalPrice = calculateInflation(
+    data?.data?.price ?? -1,
+    inflation,
+    years,
+  );
+
   return (
     <div className="rounded-md shadow-card p-sm">
       <div className="flex flex-col gap-md">
@@ -37,17 +53,24 @@ const TouchProductIncomeCalculator: FC<IProductIncomeCalculator> = ({
                 <span className="leading-none text-md text-p">
                   Est. gross rental income
                 </span>
-                <p className="leading-none font-medium text-[28px]">€143,300</p>
+                <PriceText
+                  className="leading-none font-medium text-[28px]"
+                  value={income?.annualAverage}
+                />
               </div>
             </div>
             <div className="pt-sm border-t border-grey-400">
               <div className="flex flex-col gap-[8px]">
                 <span className="leading-none text-md text-p">
-                  Projected value after 1 year
+                  Projected value after {years}{' '}
+                  {getNoun(years, 'year', 'years', 'years')}
                 </span>
                 <div className="flex gap-[8px]">
-                  <span className="text-[18px] font-medium">€345,000</span>
-                  <PercentTip variant="dark" value={4} />
+                  <PriceText
+                    className="text-[18px] font-medium"
+                    value={totalPrice}
+                  />
+                  <PercentTip variant="dark" value={inflation * 100} />
                 </div>
               </div>
             </div>

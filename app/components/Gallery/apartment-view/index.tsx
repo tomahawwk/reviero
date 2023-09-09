@@ -35,7 +35,7 @@ const ApartmentView: FC<IGalleryApartment> = ({items}) => {
     setCurrentIndex(index);
   };
 
-  return (
+  if(items) return (
     <>
       <div className="grid w-full grid-cols-[7fr_3fr] gap-xs h-full">
         <div
@@ -84,7 +84,8 @@ const ApartmentView: FC<IGalleryApartment> = ({items}) => {
         />
       )}
     </>
-  );
+  )
+  else return null;
 };
 
 export default ApartmentView;

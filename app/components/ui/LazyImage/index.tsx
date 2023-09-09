@@ -1,13 +1,17 @@
 import {FC} from 'react';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {ILazyImage} from './types';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
 
-const LazyImage: FC<ILazyImage> = ({className, src, width, height, alt, minWidth}) => {
+const LazyImage: FC<ILazyImage> = ({
+  className,
+  src,
+  width,
+  height,
+  alt,
+  minWidth,
+}) => {
   return (
     <LazyLoadImage
-      effect="blur"
-      delayTime={600}
-      delayMethod="debounce"
       className={className}
       src={src}
       alt={alt}

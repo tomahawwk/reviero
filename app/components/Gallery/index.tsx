@@ -26,7 +26,7 @@ const Gallery: FC<IGallery> = ({items, apartmentView}) => {
 
   return (
     <div className={`gallery${apartmentView ? ' gallery--apartment' : ''}`}>
-      {formatItems.length > 1 ? (
+      {formatItems?.length > 1 ? (
         apartmentView && moreLG ? (
           <ApartmentView items={formatItems} />
         ) : (

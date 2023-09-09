@@ -1,9 +1,9 @@
 'use client';
 import {setModalPayload} from '@/app/store/actions/modal';
 import {TriangleIcon} from '@/icons/Triangle';
+import {useAppDispatch} from '@/redux/hooks';
 import Image from 'next/image';
 import {FC, useState} from 'react';
-import {useDispatch} from 'react-redux';
 import {IHowitem} from '../../types';
 
 const HowItemTouch: FC<IHowitem> = ({
@@ -17,7 +17,7 @@ const HowItemTouch: FC<IHowitem> = ({
   const [showDescription, setShowDescription] = useState<boolean>(
     firstChild ? true : false,
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const openPopupHandler = () => {
     dispatch(setModalPayload('timeline', true));

@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 17dd2807f0bf2e21a18507b2d4e1956a4d0cc674 tomahawwk <t.ahawwk@gmail.com> 1693753541 +0200	clone: from https://gitlab.com/reviero-dev/frontend
+17dd2807f0bf2e21a18507b2d4e1956a4d0cc674 c66b2bc595ce63444ae4fbf6896ac7bc4f50c8dd tomahawwk <t.ahawwk@gmail.com> 1693753560 +0200	commit: update
+c66b2bc595ce63444ae4fbf6896ac7bc4f50c8dd 197abed0d68d68a8e336806da62a909057ab5930 tomahawwk <t.ahawwk@gmail.com> 1693959825 +0200	commit: update
+197abed0d68d68a8e336806da62a909057ab5930 e7d51a16b2da7cc3a5be9c0331d3176d962ab680 tomahawwk <t.ahawwk@gmail.com> 1693960067 +0200	commit: update
+e7d51a16b2da7cc3a5be9c0331d3176d962ab680 74bbf067f4484f9df631dd8a35be9641c514f15b tomahawwk <t.ahawwk@gmail.com> 1693987800 +0200	commit: removes protobuf imports
+74bbf067f4484f9df631dd8a35be9641c514f15b 8803ef2a47c360eb6c8770a067bf1a87d6470a09 tomahawwk <t.ahawwk@gmail.com> 1693988356 +0200	commit: update
+8803ef2a47c360eb6c8770a067bf1a87d6470a09 2d51f1e369b2c2f14d76b31496ae4b850899dc26 tomahawwk <t.ahawwk@gmail.com> 1694030914 +0200	commit: update
+2d51f1e369b2c2f14d76b31496ae4b850899dc26 86011147975956d1f3f2f8e9794aea7c15761c38 tomahawwk <t.ahawwk@gmail.com> 1694220823 +0200	commit: update
+86011147975956d1f3f2f8e9794aea7c15761c38 1b213b8ce7d3dd0f80340702077a3f6c9f27f890 tomahawwk <t.ahawwk@gmail.com> 1694221174 +0200	commit (merge): Merge branch 'master' of https://gitlab.com/reviero-dev/frontend
